@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root{
+    --container-bg-color: #333;
+    --left-bg-color: rgba(20, 28, 60, 0.5);
+    --left-button-hover-color: rgba(212, 175, 55, 1);
+    --right-bg-color: rgba(212, 175, 55, 0.5);
+    --right-button-hover-color: rgba(20, 28, 60, 1);
+    --hover-width: 70%;
+    --other-width: 30%;
+    --speed: 1000ms;
+}
+
+* {
+    font-family: "Playfair Display", serif;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar{
+    background: linear-gradient(to right, 
+    rgb(212, 175, 55) 0%, 
+    rgba(212, 175, 55, 0.8) 10%, 
+    #141C3C 35%, 
+    #141C3C 65%, 
+    rgba(212, 175, 55, 0.8) 90%, 
+    rgb(212, 175, 55) 100%
+    );
+    height: 90px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar img{
+    position: relative;
+    height: 160px;
+}
+
+/* Section-1 */
+.section1{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    text-align: left;
+}
+
+.section1 .img1{
+   width: auto;
+   display: block;
+   margin-top: 35px;
+   margin-left: 35px;
+   border-radius: 39px;
+}
+
+.section1 .img1 img{
+    height: 630px;
+    width: 499px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 6px 6px 80px rgba(0, 0, 0, 0.3);
+}
+
+.section1 .img1 img:hover{
+    box-shadow: 6px 6px 80px rgb(233, 189, 46);
+    /* box-shadow: 6px 6px 80px rgba(20, 28, 60, 1); */
+}
+
+.section1 .text1{
+    width: auto;
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text1 #tex1h1{
+    font-size: xxx-large;
+    color: #141C3C;
+}
+
+.text1 p{
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-top: -25px;
+    word-spacing: 6px;
+    letter-spacing: 1.3px;
+    color: rgb(226, 188, 0);
+}
+
+/* Section-2 */
+
+#winterCollection, #fallCollection{
+    font-size: 3rem;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    color: #fff;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.button{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    color: #fff;
+    text-align: center;
+    height: 2.5rem;
+    padding-top: 1.3rem;
+    width: 15rem;
+    border: #fff solid 0.2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: translateX(-50%);
+}
+
+.split.left .button:hover{
+    background-color: var(--left-button-hover-color);
+    border-color: var(--left-button-hover-color);
+}
+
+
+.split.right .button:hover{
+    background-color: var(--right-button-hover-color);
+    border-color: var(--right-button-hover-color);
+}
+
+.section2{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin-top: 130px;
+    margin-bottom: 130px;
+    background-color: var(--container-bg-color);
+    box-shadow: 6px 6px 80px rgba(20, 28, 60, 1);
+}
+
+.split{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.split.left{
+    left: 0;
+    background: url('winterImage.jpeg') center center no-repeat;
+    background-size: cover;
+}
+
+.split.left::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+.split.right{
+    right: 0;
+    background: url('fallImage.jpeg') center center no-repeat;
+    background-size: cover;
+}
+
+.split.right::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bg-color);
+}
+
+.split.left, .split.right, .split.right:before, .split.left:before {
+    transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left{
+    width: var(--hover-width);
+}
+
+.hover-left .right{
+    width: var(--other-width);
+}
+
+.hover-left .right:before{
+    z-index: 2;
+}
+
+.hover-right .right{
+    width: var(--hover-width);
+}
+
+.hover-right .left{
+    width: var(--other-width);
+}
+
+.hover-right .left:before{
+    z-index: 2;
+}
+
+@media(max-width: 800px){
+    h1{
+        font-size: 1.7rem;
+    }
+
+    .button{
+        width: 12rem;
+    }
+}
+
+@media(max-height: 700px){
+    .button{
+        top: 70%;
+    }
+}
+
